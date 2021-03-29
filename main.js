@@ -9,7 +9,7 @@ async function getUsers() {
             if (typeof user[userKey] === "object") {
                 HTML += `<h4  class="card-title">${userKey} : `
                 for (let nameKey in user[userKey]) {
-                    HTML += `${user[userKey][nameKey]} `
+                    HTML += `${user[userKey][nameKey]}`
                 }
                 HTML += `</h4>`
             } else if (userKey === 'picture') {
