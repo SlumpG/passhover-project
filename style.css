@@ -1,0 +1,23 @@
+#mainDiv{
+    display: flex;
+    flex-flow: wrap;
+
+}
+#mainDiv div:hover{
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+#navBar{
+  height: 10vh;
+}
+
+  table{
+      margin: 0 auto;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  #navBar img{
+    max-height: 50px ;
+  }
