@@ -7,16 +7,16 @@ async function getUsers() {
         HTML += `<div id="${user['index']}" class="card "> `
         for (let userKey in user) {
             if (typeof user[userKey] === "object") {
-                HTML += `<h4  class="card-title">`
+                HTML += `<h4  class="card-title">${userKey} : `
                 for (let nameKey in user[userKey]) {
                     HTML += `${user[userKey][nameKey]} `
                 }
                 HTML += `</h4>`
             } else if (userKey === 'picture') {
-                HTML += ` <img  src="${user[userKey]}" >`
+                HTML += ` <img class="card-img-top" src="${user[userKey]}" >`
             }
             else if (user[userKey] != user['_id'] && user[userKey] != user['picture'] && user[userKey] != user['index']) {
-                HTML += ` <h5 class="card-text">${user[userKey]}</h4> `
+                HTML += `<h5 class="card-text"> ${userKey} :${user[userKey]}</h5> `
             }
         }
         HTML += `</div>`
@@ -90,7 +90,7 @@ async function getUsers() {
             if (email.value === email2.value) {
                 HTML += `${fname.value} ${lname.value} register successfully`;
             } else {
-                    errorMsg.innerHTML += `pls check the from the fill it again`;
+                errorMsg.innerHTML += `pls check the from the fill it again`;
                 setTimeout(() => {
                     errorMsg.innerHTML = ''
                 }, 3000);
@@ -100,35 +100,41 @@ async function getUsers() {
         });
 
     });
-   for(let user of Users){
-    HTML=''
-    document.getElementById(`${user['index']}`).addEventListener('click',()=>{
+    for (let user of Users) {
+        HTML = ''
+        document.getElementById(`${user['index']}`).addEventListener('click', () => {
             HTML += `<div class="card">`
-            for(userKKey in user){
+            for (userKKey in user) {
                 if (typeof user[userKKey] === "object") {
-                    HTML += `<h1>`
+                    HTML += `<h4 class="card-title">`
                     for (let nameKey in user[userKKey]) {
                         HTML += `${user[userKKey][nameKey]} `
                     }
-                    HTML += `</h1>`
+                    HTML += `<h4/>`
                 } else if (userKKey === 'picture') {
                     HTML += ` <img src="${user[userKKey]}" >`
                 }
                 else if (user[userKKey] != user['_id'] && user[userKKey] != user['picture'] && user[userKKey] != user['index']) {
-                    HTML += ` <h4>${user[userKKey]}</h4> `
+                    HTML += ` <h5>${user[userKKey]}</h5> `
                 }
-            
+
             }
-            HTML +=`</div>`
+            HTML += `</div>`
             mainDiv.innerHTML = HTML
         })
-         
 
-   }
 
-   
+    }
+
+
 
 }
 getUsers();
 
-
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
