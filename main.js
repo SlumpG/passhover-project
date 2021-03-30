@@ -4,7 +4,7 @@ async function getUsers() {
     let HTML = '';
 
     for (let user of Users) {
-        HTML += `<div id="${user['index']}" class="card shadow m-1 mb-5 bg-white rounded""> `
+        HTML += `<div id="${user['index']}" class="card shadow m-1 mb-4 bg-white rounded""> `
         for (let userKey in user) {
             if (typeof user[userKey] === "object") {
                 HTML += `<li class="list-group-item text-capitalize"><h5>${userKey}: `
