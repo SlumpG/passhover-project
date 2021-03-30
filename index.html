@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <nav id="navBar" class="nav nav-pills nav-justified">
+    <div class="container bg-dark">
+    <nav id="navBar" class="btn-group" role="group" aria-label="Basic example">
         <button id="register" class="btn btn-secondary">register</button>
         <a class="nav-link btn-secondary" href="https://tech-career-alternative.firebaseapp.com/" target="_blank">
             <img class="logo" src="imgs/tech-carrier-logo.jpg" alt="tech carrier logo">Tech Carrier</a>
@@ -20,19 +21,19 @@
             <img class="logo" src="imgs/indi-logo.jpeg" alt="Indi_Com logo">Indi_Com</a>
         <button id="infoInTableForm" class="btn btn-secondary">info in table form</button>
     </nav>  
-     <div id="mySidenav" class="sidenav">
+    
+<div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
       </div>
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <span class="sticky-top" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
       
-
-    <div id="mainDiv"></div>
-
  
+    <div id="mainDiv"></div>
+ </div>
     <script src="main.js"></script>
 </body>
 

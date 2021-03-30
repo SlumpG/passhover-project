@@ -1,6 +1,7 @@
 #mainDiv{
     display: flex;
     flex-flow: wrap;
+   transition: height 10s;
 
 }
 #mainDiv div:hover{
@@ -10,15 +11,10 @@
 
 #navBar{
   height: 10vh;
+  width: 100%;
 }
 
-  table{
-      margin: 0 auto;
-  }
-  table, th, td {
-    border: 1px solid black;
-  }
-  #navBar img{
+#navBar img{
     max-height: 50px ;
   }
   
