@@ -130,23 +130,23 @@ async function getUsers() {
     for (let user of Users) {
         HTML = ''
         document.getElementById(`${user['index']}`).addEventListener('click', () => {
-            HTML += `<div class="card">`
+            HTML += `<div class="card mb-3 text-capitalize" style="min-width: 660px;"><div class="row no-gutters">`
             for (userKKey in user) {
                 if (typeof user[userKKey] === "object") {
-                    HTML += `<h4 class="card-title">`
+                    HTML += `<h4 class="card-title">${userKKey}: `
                     for (let nameKey in user[userKKey]) {
                         HTML += `${user[userKKey][nameKey]} `
                     }
                     HTML += `<h4/>`
                 } else if (userKKey === 'picture') {
-                    HTML += ` <img src="${user[userKKey]}" >`
+                    HTML += ` <div class="col-md-4"><img src="${user[userKKey]}" > </div><div class="col-md-8"><div class="card-body">`
                 }
                 else if (user[userKKey] != user['_id'] && user[userKKey] != user['picture'] && user[userKKey] != user['index']) {
-                    HTML += ` <h5>${user[userKKey]}</h5> `
+                    HTML += ` <h4 class="card-text">${userKKey}: ${user[userKKey]}</h4> `
                 }
 
             }
-            HTML += `</div>`
+            HTML += `</div></div></div></div>`
             mainDiv.innerHTML = HTML
         })
 

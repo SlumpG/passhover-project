@@ -5,7 +5,7 @@
    transition: height 10s;
 
 }
-#mainDiv div:hover{
+#mainDiv>div:hover{
   transform: scale(1.01);
   cursor: pointer;
 }
