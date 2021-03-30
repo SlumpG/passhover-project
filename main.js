@@ -4,69 +4,91 @@ async function getUsers() {
     let HTML = '';
 
     for (let user of Users) {
-        HTML += `<div id="${user['index']}" class="card shadow m-1 mb-4 bg-white rounded""> `
+        HTML += `<div id="${user['index']}" class="card shadow m-1 mb-4 bg-white rounded""> `;
         for (let userKey in user) {
             if (typeof user[userKey] === "object") {
-                HTML += `<li class="list-group-item text-capitalize"><h5>${userKey}: `
+                HTML += `<li class="list-group-item text-capitalize"><h5>${userKey}: `;
                 for (let nameKey in user[userKey]) {
-                    HTML += `${user[userKey][nameKey]}`
+                    HTML += `${user[userKey][nameKey]}`;
                 }
                 HTML += `</h5></li>`
             } else if (userKey === 'picture') {
-                HTML += ` <img class="card-img-top" src="${user[userKey]}" > <ul class="list-group list-group-flush">`
+                HTML += ` <img class="card-img-top" src="${user[userKey]}" > <ul class="list-group list-group-flush">`;
             }
             else if (user[userKey] != user['_id'] && user[userKey] != user['picture'] && user[userKey] != user['index']) {
-                HTML += `<li class="list-group-item text-capitalize"> ${userKey}: ${user[userKey]}</li> `
+                HTML += `<li class="list-group-item text-capitalize"> ${userKey}: ${user[userKey]}</li> `;
             }
         }
-        HTML += ` </ul></div>`
+        HTML += ` </ul></div>`;
 
     }
     mainDiv.innerHTML += HTML
-
+    infoInCardForm.addEventListener('click',()=>{
+        HTML = '';
+        for (let user of Users) {
+            HTML += `<div id="${user['index']}" class="card shadow m-1 mb-4 bg-white rounded""> `;
+            for (let userKey in user) {
+                if (typeof user[userKey] === "object") {
+                    HTML += `<li class="list-group-item text-capitalize"><h5>${userKey}: `;
+                    for (let nameKey in user[userKey]) {
+                        HTML += `${user[userKey][nameKey]}`;
+                    }
+                    HTML += `</h5></li>`
+                } else if (userKey === 'picture') {
+                    HTML += ` <img class="card-img-top" src="${user[userKey]}" > <ul class="list-group list-group-flush">`;
+                }
+                else if (user[userKey] != user['_id'] && user[userKey] != user['picture'] && user[userKey] != user['index']) {
+                    HTML += `<li class="list-group-item text-capitalize"> ${userKey}: ${user[userKey]}</li> `;
+                }
+            }
+            HTML += ` </ul></div>`;
+    
+        }
+        mainDiv.innerHTML = HTML;
+    })
     infoInTableForm.addEventListener('click', () => {
-        HTML = ''
-        HTML += `<table class="table table-hover table-dark" > `
+        HTML = '';
+        HTML += `<table class="table table-hover table-dark" > `;
 
         for (let user of Users) {
             if (user['index'] < 1) {
-                HTML += `<tr>`
+                HTML += `<tr>`;
 
                 for (let thKey in user) {
                     if (user[thKey] != user['_id'] && user[thKey] != user['index']) {
-                        HTML += ` <th scope="col"> ${thKey}</th>`
+                        HTML += ` <th scope="col"> ${thKey}</th>`;
 
                     }
                 }
             }
 
-            HTML += `</tr>`
+            HTML += `</tr>`;
 
 
-            HTML += `<tr>`
+            HTML += `<tr>`;
             for (let userKey in user) {
                 if (typeof user[userKey] === "object") {
-                    HTML += `<td>`
+                    HTML += `<td>`;
                     for (let nameKey in user[userKey]) {
-                        HTML += ` ${user[userKey][nameKey]} `
+                        HTML += ` ${user[userKey][nameKey]} `;
                     }
-                    HTML += `</td>`
+                    HTML += `</td>`;
                 } else if (userKey === 'picture') {
-                    HTML += `<td> <img src="${user[userKey]}" ></td>`
+                    HTML += `<td> <img src="${user[userKey]}" ></td>`;
                 }
                 else if (user[userKey] != user['_id'] && user[userKey] != user['picture'] && user[userKey] != user['index']) {
-                    HTML += ` <td>${user[userKey]}</td> `
+                    HTML += ` <td>${user[userKey]}</td> `;
                 }
             }
-            HTML += `</tr>`
+            HTML += `</tr>`;
 
         }
-        HTML += `</table>`
-        mainDiv.innerHTML = HTML
+        HTML += `</table>`;
+        mainDiv.innerHTML = HTML;
     });
 
     register.addEventListener('click', () => {
-        HTML = ''
+        HTML = '';
         HTML += `<form id="registerForm" class="mx-auto ">
     <div class="form-row">
         <div class="col-md-6 mb-3 ">
@@ -109,21 +131,21 @@ async function getUsers() {
         </div>
         </div>
       </form>
-       `
+       `;
 
 
-        mainDiv.innerHTML = HTML
+        mainDiv.innerHTML = HTML;
         submitForm.addEventListener('click', () => {
             if (email.value === email2.value) {
                 HTML += `${fname.value} ${lname.value} register successfully`;
             } else {
                 errorMsg.innerHTML += `pls check the from the fill it again`;
                 setTimeout(() => {
-                    errorMsg.innerHTML = ''
+                    errorMsg.innerHTML = '';
                 }, 3000);
 
             }
-            mainDiv.innerHTML = HTML
+            mainDiv.innerHTML = HTML;
         });
 
     });
@@ -133,21 +155,21 @@ async function getUsers() {
             HTML += `<div class="card mb-3 text-capitalize" style="min-width: 660px;"><div class="row no-gutters">`
             for (userKKey in user) {
                 if (typeof user[userKKey] === "object") {
-                    HTML += `<h4 class="card-title">${userKKey}: `
+                    HTML += `<h4 class="card-title">${userKKey}: `;
                     for (let nameKey in user[userKKey]) {
-                        HTML += `${user[userKKey][nameKey]} `
+                        HTML += `${user[userKKey][nameKey]} `;
                     }
-                    HTML += `<h4/>`
+                    HTML += `<h4/>`;
                 } else if (userKKey === 'picture') {
-                    HTML += ` <div class="col-md-4"><img src="${user[userKKey]}" > </div><div class="col-md-8"><div class="card-body">`
+                    HTML += ` <div class="col-md-4"><img src="${user[userKKey]}" > </div><div class="col-md-8"><div class="card-body">`;
                 }
                 else if (user[userKKey] != user['_id'] && user[userKKey] != user['picture'] && user[userKKey] != user['index']) {
-                    HTML += ` <h4 class="card-text">${userKKey}: ${user[userKKey]}</h4> `
+                    HTML += ` <h4 class="card-text">${userKKey}: ${user[userKKey]}</h4> `;
                 }
 
             }
-            HTML += `</div></div></div></div>`
-            mainDiv.innerHTML = HTML
+            HTML += `</div></div></div></div>`;
+            mainDiv.innerHTML = HTML;
         })
 
 
