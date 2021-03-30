@@ -88,8 +88,10 @@ async function getUsers() {
     });
 
     register.addEventListener('click', () => {
+
         HTML = '';
         HTML += `<form id="registerForm" class="mx-auto ">
+      
     <div class="form-row">
         <div class="col-md-6 mb-3 ">
             <label class="text-light" for="fname">First name:</label><br/>
@@ -127,28 +129,33 @@ async function getUsers() {
     <div class="form-row">
     <div class="col-md-6 mb-3  ">
         <button class="btn btn-secondary" id="submitForm" type="button" >Submit</button>
-        <p class="bg-danger text-light" id="errorMsg"><p>
         </div>
         </div>
+        <div>
+        <p class="bg-danger text-light" id="errorMsg"><p></div>
       </form>
        `;
-
+      
+       
 
         mainDiv.innerHTML = HTML;
         submitForm.addEventListener('click', () => {
             if (email.value === email2.value) {
-                HTML += `${fname.value} ${lname.value} register successfully`;
+                errorMsg.innerHTML = `${fname.value} ${lname.value} register successfully`;
+                setTimeout(() => {
+                    errorMsg.innerHTML = '';
+                }, 3000);
             } else {
-                errorMsg.innerHTML += `pls check the from the fill it again`;
+                errorMsg.innerHTML += `pls check the from and  fill it again`;
                 setTimeout(() => {
                     errorMsg.innerHTML = '';
                 }, 3000);
 
             }
-            mainDiv.innerHTML = HTML;
         });
 
     });
+   
     for (let user of Users) {
         HTML = ''
         document.getElementById(`${user['index']}`).addEventListener('click', () => {

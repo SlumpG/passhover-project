@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
-   transition: height 10s;
+   
 
 }
 #mainDiv>div:hover{
@@ -14,6 +14,7 @@
   height: 10vh;
   width: 100%;
 }
+
 
 #navBar img{
     max-height: 50px ;
