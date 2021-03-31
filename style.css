@@ -1,3 +1,8 @@
+#containerDiv>{
+  transition: all 2s;
+}
+
+
 #mainDiv{
     display: flex;
     flex-flow: wrap;

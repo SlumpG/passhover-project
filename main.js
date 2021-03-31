@@ -2,7 +2,7 @@ async function getUsers() {
     let UsersList = await fetch('https://next.json-generator.com/api/json/get/NJ-UoW2Xq');
     let Users = await UsersList.json();
     let HTML = '';
-
+    mainDiv.style.transition = "all 2s"
     for (let user of Users) {
         HTML += `<div id="${user['index']}" class="card shadow m-1 mb-4 bg-white rounded""> `;
         for (let userKey in user) {
@@ -131,7 +131,7 @@ async function getUsers() {
         <button class="btn btn-secondary" id="submitForm" type="submit" >Submit</button>
         </div>
         </div>
-        <div id="errorMsg">
+        <div id="errorMsg" class="rounded">
         </div>
       </form>
        `;
@@ -146,7 +146,7 @@ async function getUsers() {
                     errorMsg.innerHTML = '';
                 }, 3000);
             } else {
-                errorMsg.innerHTML += `<p class="bg-danger text-light" >Please check the from and  fill it again<p>`;
+                errorMsg.innerHTML += `<p class="bg-danger text-light rounded" >Please check the from and  fill it again<p>`;
                 setTimeout(() => {
                     errorMsg.innerHTML = '';
                 }, 3000);
